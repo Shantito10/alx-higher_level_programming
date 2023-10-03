@@ -2,7 +2,7 @@
 def magic_culculation(a, b, c):
     if a < b:
         return c
-    elif a > c:
-        return b
+    elif c > b:
+        return a + b
     else:
         return a * b - c
