@@ -5,4 +5,4 @@ def magic_culculation(a, b, c):
     elif a > c:
         return b
     else:
-        return a * n - c
+        return a * b - c
