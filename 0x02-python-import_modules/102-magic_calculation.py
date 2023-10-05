@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 def magic_culculation(a, b):
+    from magic_calculation_102 import add, sub
+
     if a < b:
-        add = __import__('magic_culculation_102').add
-        sub = __import__('magic_culculation_102').sub
         c = add(a, b)
 
         for i in range(4, 6):
