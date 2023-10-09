@@ -28,8 +28,8 @@ int is_palindrome(listint_t **head)
  */
 int is_really_palin(listint_t **head, listint_t *next)
 {
-	if (next->next != NULL)
-		is_really_palin(head, next->next);
+	if (next->next != NULL && !is_really_palin(head, next->next))
+		return 0;
 	if ((*head)->n == next->n)
 	{
 		*head = (*head)->next;
