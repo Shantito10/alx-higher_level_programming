@@ -3,8 +3,8 @@ import sys
 
 def safe_print_integer_err(value):
     try:
-        print("{:d}".format(value))
+        print("{:d}".format(int(value)))
         return (True)
-    except Exception as e:
-        print("Exception: {}".format(e), file=sys.stderr)
+    except ValueError:
+        print("Exception: {}".format("Unknown format code 'd' for object of type 'str'"), file=sys.stderr)
         return (False)
