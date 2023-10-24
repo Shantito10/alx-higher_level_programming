@@ -3,7 +3,7 @@
 
 class Square:
     """
-    Class to repsent a square
+    Class to represent a square
     """
     def __init__(self, size=0):
         if type(size) is not int:
