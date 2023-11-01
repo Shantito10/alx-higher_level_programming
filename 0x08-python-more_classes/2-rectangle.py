@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""
-Definition os a rectangle
+""" Area and Perimeter
+This module defines a class Rectangle
 """
 
 
@@ -30,6 +30,13 @@ class Rectangle:
 
     Instantiation with optional width and height:
         def __init__(self, width=0, height=0):
+
+    Public instance method: def area(self):
+    that returns the rectangle area
+    Public instance method: def perimeter(self):
+    that returns the rectangle perimeter:
+    if width or height is equal to 0,
+    perimeter is equal to 0
     """
 
     def __init__(self, width=0, height=0):
@@ -59,3 +66,25 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
+    def area(self):
+        """ calculate the area of a Rectangle
+        Parameters:
+            @self: current class instance
+
+        Return:
+            Area of Rectangle
+        """
+        return self.__height * self.__width
+
+    def perimeter(self):
+        """ calculate the perimeter of a Rectangle
+        Parameters:
+            @self: current class instance
+
+        Return:
+            Perimeter of Rectangle
+        """
+        if self.__width == 0 or self.__height == 0:
+            return 0
+        return (2 * self.__width) + (2 * self.__height)
