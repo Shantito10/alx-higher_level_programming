@@ -1,1 +1,1 @@
-Before the execution of line 2 (print("Love")), there are 2 int objects created and still in memory.
+2
