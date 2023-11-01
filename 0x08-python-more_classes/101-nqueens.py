@@ -27,7 +27,7 @@ def solve_nqueens_util(board, col, N, result):
     for i in range(N):
         if is_safe(board, i, col, N):
             board[i][col] = 1
-             res = solve_nqueens_util(board, col + 1, N, result) or res
+            res = solve_nqueens_util(board, col + 1, N, result) or res
             board[i][col] = 0
     return res
 
@@ -45,7 +45,7 @@ def solve_nqueens(N):
     for sol in result:
         print(sol)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
@@ -54,4 +54,4 @@ if _name_ == "_main_":
         solve_nqueens(N)
     except ValueError:
         print("N must be a number")
-        sys.exit(1)
+        sys.exit(1)
