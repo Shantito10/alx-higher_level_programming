@@ -66,6 +66,8 @@ class Rectangle:
         self.__width = width
         self.__height = height
 
+        self.increment_number_of_instances()
+
     @property
     def width(self):
         return self.__width
