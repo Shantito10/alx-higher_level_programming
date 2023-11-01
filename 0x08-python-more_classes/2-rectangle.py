@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-""" Real definition of a rectangle
-Module defines a class Rectangle
+"""
+Definition os a rectangle
 """
 
 
