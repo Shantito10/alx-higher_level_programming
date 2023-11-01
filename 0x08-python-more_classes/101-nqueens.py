@@ -3,33 +3,20 @@ import sys
 
 def is_safe(board, row, col, N):
     for i in range(col):
-        if board[row][i] == 1:
+        if board[row][i] == row or board[i] - i == row - col or board[i] + i == row + col:
             return False
-    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
-        if board[i][j] == 1:
-            return False
-    for i, j in zip(range(row, N, 1), range(col, -1, -1)):
-        if board[i][j] == 1:
-            return False
-    return True
-
-def solve_nqueens_util(board, col, N, result):
-    if col >= N:
-        solution = []
-        for i in range(N):
-            for j in range(N):
-                if board[i][j] == 1:
-                    solution.append([i, j])
-        result.append(solution)
         return True
 
-    res = False
+def solve_nqueens_util(board, col, N, result):
+    if col == N:
+        solution = [[i, board[i]] for i in range(N)]
+        result.append(solution)
+        return
+
     for i in range(N):
         if is_safe(board, i, col, N):
-            board[i][col] = 1
-            res = solve_nqueens_util(board, col + 1, N, result) or res
-            board[i][col] = 0
-    return res
+            board[col] = i
+            solve_nqueens_util(board, col + 1, N, result)
 
 def solve_nqueens(N):
     if not isinstance(N, int):
@@ -39,7 +26,7 @@ def solve_nqueens(N):
         print("N must be at least 4")
         sys.exit(1)
 
-    board = [[0 for _ in range(N)] for _ in range(N)]
+    board = [-1] * N
     result = []
     solve_nqueens_util(board, 0, N, result)
     for sol in result:
